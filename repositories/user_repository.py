@@ -35,7 +35,7 @@ def delete_all():
 
 # SELECT
 def select(id):
-    task = None
+    user = None
     sql = "SELECT * FROM users WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
@@ -44,8 +44,8 @@ def select(id):
     # Could alternatively have: if len(results) > 0
     if results:
         result = results[0]
-        task = User(result['first_name'], result['last_name'])
-    return task
+        user = User(result['first_name'], result['last_name'])
+    return user
 
 # DELETE
 def delete(id):
