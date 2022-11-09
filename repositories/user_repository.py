@@ -12,7 +12,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        user = User(row['first_name'], row['last_name'])
+        user = User(row['first_name'], row['last_name'], row['id'])
         users.append(user)
     return users
 
@@ -44,7 +44,7 @@ def select(id):
     # Could alternatively have: if len(results) > 0
     if results:
         result = results[0]
-        user = User(result['first_name'], result['last_name'])
+        user = User(result['first_name'], result['last_name'], result['id'])
     return user
 
 # DELETE

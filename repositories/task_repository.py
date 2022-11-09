@@ -43,7 +43,8 @@ def select(id):
     # Could alternatively have: if len(results) > 0
     if results:
         result = results[0]
-        task = Task(result['description'], result['assignee'], result['duration'], result['completed'], result['user_id'])
+        user = user_repository.select(result['user_id'])
+        task = Task(result['description'], result['assignee'], result['duration'], user, result['completed'], result['id'])
     return task
 
 # DELETE
